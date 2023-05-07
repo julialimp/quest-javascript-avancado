@@ -6,21 +6,22 @@ const screen = {
                                         <div class="data">
                                             <h1>${user.name ?? 'não possui nome cadastrado 😥'}</h1>
                                             <p>${user.bio ?? 'não possui bio cadastrado 😥'}</p>
-                                            <p>👥<strong>Followers</strong>: ${user.followers}</p>
-                                            <p>👥<strong>Following</strong>: ${user.following}</p>
+                                            <p>👥<strong>Followers</strong>: ${user.followers || "no followers"}</p>
+                                            <p>👥<strong>Following</strong>: ${user.following || "no following"}</p>
                                         </div>
-                                    </div>`
+                                      </div>`
         let repositoriesItems = ""
         user.repositories.forEach(repo => {
             repositoriesItems += `<li><a href="${repo.html_url}" target="_blank">
                                     <h2>${repo.name}</h2>
                                     <div class="infos-repository">
-                                        <p>🍴${repo.forks_count}</p>
-                                        <p>⭐${repo.stargazers_count}</p>
-                                        <p>👀${repo.watchers_count}</p>
-                                        <p>👩‍💻${repo.language ?? "Language not informed"}</p>
+                                        <p>⭐${repo.stargazers_count || "no stars"}</p>
+                                        <p>🍴${repo.forks_count || "no forks"}</p>
+                                        <p>👀${repo.watchers_count || "no watchers"}</p>
+                                        <p>👩‍💻${repo.language ?? "Language not informed!"}</p>
                                     </div>
-                                  </a></li>`
+                                      </a>
+                                  </li>`
         })
 
         if (user.repositories.length > 0) {
@@ -40,6 +41,7 @@ const screen = {
             }
 
             eventList += `<li><strong>${event.repo.name}</strong> - ${commitMessage}</li>`
+            console.log(event.payload)
         })
 
         if (user.events.length > 0) {
