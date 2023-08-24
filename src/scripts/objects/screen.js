@@ -13,13 +13,13 @@ const screen = {
         let repositoriesItems = ""
         user.repositories.forEach(repo => {
             repositoriesItems += `<li><a href="${repo.html_url}" target="_blank">
-                                    <h2>${repo.name}</h2>
-                                    <div class="infos-repository">
+                                      <h2>${repo.name}</h2>
+                                      <div class="infos-repository">
                                         <p>⭐${repo.stargazers_count || "no stars"}</p>
                                         <p>🍴${repo.forks_count || "no forks"}</p>
                                         <p>👀${repo.watchers_count || "no watchers"}</p>
                                         <p>👩‍💻${repo.language ?? "Language not informed!"}</p>
-                                    </div>
+                                      </div>
                                       </a>
                                   </li>`
         })
@@ -41,7 +41,6 @@ const screen = {
             }
 
             eventList += `<li><strong>${event.repo.name}</strong> - ${commitMessage}</li>`
-            console.log(event.payload)
         })
 
         if (user.events.length > 0) {
