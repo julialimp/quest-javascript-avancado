@@ -1,6 +1,4 @@
-# projeto-inicial-fetch-github-api
-Repositório contendo os arquivos iniciais do projeto de Fetch e GitHub API
-
+# fetch-github-api
 This is a solution to the DevQuest Challenge.
 
 ## Table of contents
